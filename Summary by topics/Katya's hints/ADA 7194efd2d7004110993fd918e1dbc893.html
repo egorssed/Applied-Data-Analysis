@@ -1,0 +1,1387 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ADA</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="53b6505e-8441-4e53-a8b8-eb4f871c80e5" class="page sans"><header><h1 class="page-title">ADA</h1></header><div class="page-body"><ul id="1d74233f-d390-40d9-a8ce-b7c5910d87fc" class="toggle"><li><details open=""><summary><a href="http://localhost:8889/tree/Documents/GitHub/2020/Tutorials/09%20-%20Handling%20text%201">09 - Handling text 1</a></summary><p id="ce069b8b-a578-427e-be13-385fdfc9984a" class="">
+</p><ol id="db5a7816-53d8-4334-b8b3-f1ceaf64ab39" class="numbered-list" start="1"><li>Implementing the natural language processing pipeline</li></ol><ol id="915e665d-3dc1-4912-bfff-a13346cba8e6" class="numbered-list" start="2"><li>Solving four typical language processing tasks:<ul id="607511f8-e4d0-429f-9a42-6b574dde6e04" class="bulleted-list"><li>Sentiment analysis</li></ul><ul id="18a7c325-fbf6-4b69-ba2d-72921c058ec0" class="bulleted-list"><li>Document classification</li></ul><ul id="bc573149-a724-47bd-8991-d3630f085772" class="bulleted-list"><li>Topic detection</li></ul><ul id="318496da-d069-4806-801c-db6c9568f98d" class="bulleted-list"><li>Semantic analysis</li></ul><p id="68572604-a107-4075-9320-c828ad94909f" class=""><strong>Part 1</strong></p><ul id="ce478f4f-f26b-471a-b71f-10c8aeea6815" class="bulleted-list"><li>load the books</li></ul><ul id="f56f397f-ef75-4426-9c1a-0facac96d98c" class="bulleted-list"><li>Remove the new lines</li></ul><ul id="4b106704-4c77-4253-ad4a-c18166372497" class="bulleted-list"><li>put in raw text, get a Spacy object</li></ul><ul id="e2e185d9-f7e4-449e-86d7-1f7944aecacb" class="bulleted-list"><li>create our own NLP pipeline with Spacy</li></ul><ul id="0dec83e0-6c8e-4675-8a61-60cf353afd61" class="bulleted-list"><li>Step 1: Sentence splitting</li></ul><ul id="c87212c7-7a60-4c03-b878-1a4eab8b183c" class="bulleted-list"><li>Step 2: Tokenization</li></ul><ul id="eb1ce25c-d755-4129-bff7-60e20c7706d9" class="bulleted-list"><li>Step 3: Part of speech tagging</li></ul><ul id="806929f9-c36b-4f00-a5c9-cff86dd9027d" class="bulleted-list"><li>Step 4: Named entity recognition</li></ul><ul id="ad0a576f-0507-431d-88be-2793e25ac083" class="bulleted-list"><li>Step 5: Removing stop words</li></ul><ul id="d64957d1-8ee2-4da2-8535-2a338a7f35a8" class="bulleted-list"><li>Step 6: Lemmatization</li></ul><ul id="4e53bc4b-d133-4ce5-8ada-e9e0c2efeb1d" class="bulleted-list"><li>Step 7: Chunking (shallow parsing)</li></ul><ul id="9a0e29e9-4466-4d38-a63b-e7e9abef5995" class="bulleted-list"><li>Step 8: Dependancy parsing</li></ul><ul id="b8ebb9fc-6bcb-4d29-bd08-8aff224cb7d9" class="bulleted-list"><li>Counting word occurences</li></ul><ul id="7e3d32bf-0a8a-4d8c-8be4-16ea4b477470" class="bulleted-list"><li>The NLP pipeline with Spacy</li></ul><figure id="7194efd2-d700-4110-993f-d918e1dbc893" class="image"><a href="ADA%207194efd2d7004110993fd918e1dbc893/spacy.png"><img style="width:1342px" src="ADA%207194efd2d7004110993fd918e1dbc893/spacy.png"/></a></figure><ul id="0ea02083-1e81-461d-97a6-ec109461a286" class="toggle"><li><details open=""><summary>Task 1: Sentiment analysis</summary><ul id="71cf8d8c-6396-436a-84b6-01fcc93e8359" class="toggle"><li><details open=""><summary>Initialize the analyzer.</summary><pre id="d4c91444-1eb3-4c73-9af5-92b7693aff81" class="code"><code>analyzer = SentimentIntensityAnalyzer()</code></pre></details></li></ul><ul id="58d96b08-90ba-42b9-b572-23480b89054d" class="toggle"><li><details open=""><summary>Get polarity score</summary><pre id="b2f7efc0-26cf-4e6c-bf63-537e55bab192" class="code"><code>positive_sent = []
+#iterate through the sentences, get polarity scores, choose a value
+[positive_sent.append(analyzer.polarity_scores(sent.text)[&#x27;pos&#x27;]) for sent in doc.sents]
+negative_sent = []
+[negative_sent.append(analyzer.polarity_scores(sent.text)[&#x27;neg&#x27;]) for sent in doc.sents]
+plt.hist(negative_sent,bins=15)
+total_sent = []
+[total_sent.append(analyzer.polarity_scores(sent.text)[&#x27;compound&#x27;]) for sent in doc.sents]</code></pre></details></li></ul></details></li></ul><ul id="0e3a9c05-e476-4701-991c-45e5c0af29d6" class="toggle"><li><details open=""><summary>Task 2: Document classification</summary><p id="b84a2b6b-1cef-458f-8e29-fb009a040a28" class="">
+</p><ul id="f42b11ee-fab7-4f0e-a746-a030560cbd20" class="toggle"><li><details open=""><summary>load our corpus via NLTK this time</summary><pre id="e5d26add-8302-4b54-b796-5e74f4a67dbd" class="code"><code>from nltk.corpus import PlaintextCorpusReader
+our_books = PlaintextCorpusReader(corpus_root, &#x27;.*.txt&#x27;)
+print(our_books.fileids())</code></pre></details></li></ul><ul id="ea0a47e7-4e3c-4696-8180-75cbcf27defd" class="toggle"><li><details open=""><summary>load our corpus via NLTK this time</summary><pre id="3ca7ba96-d61a-4b21-99ba-db5a60a67cfd" class="code"><code>from nltk.corpus import PlaintextCorpusReader
+our_books = PlaintextCorpusReader(corpus_root, &#x27;.*.txt&#x27;)
+print(our_books.fileids())</code></pre></details></li></ul><ul id="6d2d9b15-b93b-407e-83c5-23bdb0f47135" class="toggle"><li><details open=""><summary>Segment the books into equally long chunks</summary><ul id="8d4a56f1-dced-45a6-bb15-25cc32b4d165" class="toggle"><li><details open=""><summary>Yield successive n-sized chunks from l</summary><pre id="54d54887-d9f4-4bca-a698-87ff192a2d8f" class="code"><code>def get_chunks(l, n):
+&quot;&quot;&quot;Yield successive n-sized chunks from l.&quot;&quot;&quot;
+for i in range(0, len(l), n):
+yield l[i:i + n]</code></pre></details></li></ul><ul id="a9b9d85a-f6d7-4124-ad55-4c038af8ea1c" class="toggle"><li><details open=""><summary>dictionary of books</summary><pre id="9adfb5f0-ca10-424b-a798-c6aff365191d" class="code"><code>book_id = {f:n for n,f in enumerate(our_books.fileids())}</code></pre></details></li></ul><ul id="8a595cb9-7cb3-45e9-af21-e194fe59f69b" class="toggle"><li><details open=""><summary>segment the books into equally long chunks</summary><pre id="17063865-6390-4577-bba7-7ae30ec45edd" class="code"><code>chunks = list()
+chunk_class = list() # this list contains the original book of the chunk, for evaluation
+limit = 500 # how many chunks total
+size = 50 # how many sentences per chunk/page
+for f in our_books.fileids():
+sentences = our_books.sents(f)
+print(f,&quot;:&quot;)
+print(&#x27;Number of sentences:&#x27;,len(sentences))
+# create chunks
+chunks_of_sents = [x for x in get_chunks(sentences,size)] # this is a list of lists of sentences, which are a list of tokens
+chs = list()
+# regroup so to have a list of chunks which are strings
+for c in chunks_of_sents:
+grouped_chunk = list()
+for s in c:
+grouped_chunk.extend(s)
+chs.append(&quot; &quot;.join(grouped_chunk))
+print(&quot;Number of chunks:&quot;,len(chs),&#x27;\n&#x27;)
+# regroup so to have a list of chunks which are strings
+for c in chunks_of_sents:
+grouped_chunk = list()
+for s in c:
+grouped_chunk.extend(s)
+chs.append(&quot; &quot;.join(grouped_chunk))
+print(&quot;Number of chunks:&quot;,len(chs),&#x27;\n&#x27;)
+# filter to the limit, to have the same number of chunks per book
+chunks.extend(chs[:limit])
+chunk_class.extend([book_id[f] for _ in range(len(chs[:limit]))])</code></pre></details></li></ul></details></li></ul><ul id="4add8210-55d8-4160-ae18-7ac6d5958d11" class="toggle"><li><details open=""><summary>Representing the chunks with bag-of-words</summary><ul id="36490aea-dfa3-480f-a28b-3d73ed9e56ce" class="toggle"><li><details open=""><summary>CountVectorizer</summary><pre id="9e7a3881-18ef-4d77-baf9-62d3faca07f5" class="code"><code>vectorizer = CountVectorizer()
+#initialize and specify minumum number of occurences to avoid untractable number of features
+#vectorizer = CountVectorizer(min_df = 2) if we want high frequency
+#create bag of words features
+X = vectorizer.fit_transform(chunks)</code></pre></details></li></ul><ul id="bf3920d1-08dc-4523-8a29-6c8bd840230b" class="toggle"><li><details open=""><summary></summary></details></li></ul></details></li></ul><ul id="94aa1efb-1ed1-4123-9f33-07d873a3df61" class="toggle"><li><details open=""><summary>Fit the regularized logistic regression and find c using cross_val</summary><pre id="a97fdfcf-c0cd-4bbe-9976-a2fddc4337d3" class="code"><code>#mask and convert to int Frankenstein
+Y = np.array(chunk_class) == 1
+Y = Y.astype(int)  
+
+#shuffle the data
+X, Y = shuffle(X, Y, random_state=0)
+
+#split into training and test set
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+accs = []
+
+#the grid of regularization parameter 
+grid = [0.01,0.1,1,10,100,1000,10000]
+
+for c in grid:
+    
+    #initialize the classifier
+    clf = LogisticRegression(random_state=0, solver=&#x27;lbfgs&#x27;,C = c)
+    
+    #crossvalidate
+    scores = cross_val_score(clf, X_train,Y_train, cv=10)
+    accs.append(np.mean(scores))</code></pre></details></li></ul><ul id="bdd84a32-0c0c-4096-a9a8-4706e6531f9a" class="toggle"><li><details open=""><summary>Interpret bag of words</summary><pre id="6118f5a1-ffcd-46a9-81cf-97baa8d9f505" class="code"><code>coefs=clf.coef_[0]
+top_three = np.argpartition(coefs, -20)[-20:]
+print(np.array(vectorizer.get_feature_names())[top_three])</code></pre></details></li></ul><ul id="3a5a3466-ff1b-440f-9631-aa7275d0842e" class="toggle"><li><details open=""><summary>word emdeddings</summary><pre id="5197bcb3-452c-48a8-aa18-8c685ec34ac8" class="code"><code>list((nlp(example).vector)[0:10])</code></pre></details></li></ul></details></li></ul><ul id="63d49d85-d7a2-4876-9025-9ac972d2f745" class="toggle"><li><details open=""><summary><a href="https://docs.google.com/presentation/d/1088pG77z-gl97UJkY8lAPe5z-DAPhu9_I6avM-rhWQE/edit#slide=id.g2a0284f6fd_0_576">Task 3: Topic detection</a></summary><ul id="adf8aed5-92bb-475f-8f32-ad089f37642d" class="toggle"><li><details open=""><summary>Process doc</summary><pre id="549254ad-2176-4920-ac05-a1287d907afd" class="code"><code>STOPWORDS = spacy.lang.en.stop_words.STOP_WORDS
+
+processed_docs = list()
+for doc in nlp.pipe(chunks, n_threads=5, batch_size=10):
+
+    # Process document using Spacy NLP pipeline.
+    ents = doc.ents  # Named entities
+
+    # Keep only words (no numbers, no punctuation).
+    # Lemmatize tokens, remove punctuation and remove stopwords.
+    doc = [token.lemma_ for token in doc if token.is_alpha and not token.is_stop]
+
+    # Remove common words from a stopword list and keep only words of length 3 or more.
+    doc = [token for token in doc if token not in STOPWORDS and len(token) &gt; 2]
+
+    # Add named entities, but only if they are a compound of more than word.
+    doc.extend([str(entity) for entity in ents if len(entity) &gt; 1])
+
+    processed_docs.append(doc)
+docs = processed_docs
+del processed_docs</code></pre><p id="15f76f99-8262-407b-bf64-213248e2276d" class="">
+</p></details></li></ul><ul id="8c0f3c85-0abc-4afa-b02a-b30dfc832bfe" class="toggle"><li><details open=""><summary>Add bigrams</summary><pre id="2a8c3e6c-6d61-46ac-9d73-6886a28bb0fe" class="code"><code># Add bigrams too
+from gensim.models.phrases import Phrases
+
+# Add bigrams to docs (only ones that appear 15 times or more).
+bigram = Phrases(docs, min_count=15)
+
+for idx in range(len(docs)):
+    for token in bigram[docs[idx]]:
+        if &#x27;_&#x27; in token:
+            # Token is a bigram, add to document.
+            docs[idx].append(token)</code></pre></details></li></ul><ul id="baa13351-002e-4a69-a843-6d40a848b4eb" class="toggle"><li><details open=""><summary>Create a dictionary representation of the documents, and filter out frequent and rare words.</summary><pre id="42c2415e-c544-4abf-bbf0-ee97f6dd1b40" class="code"><code>from gensim.corpora import Dictionary
+dictionary = Dictionary(docs)
+
+# Remove rare and common tokens.
+# Filter out words that occur too frequently or too rarely.
+max_freq = 0.5
+min_wordcount = 5
+dictionary.filter_extremes(no_below=min_wordcount, no_above=max_freq)</code></pre></details></li></ul><ul id="5feb247c-277c-42dd-bb70-c95ed3ea2f09" class="toggle"><li><details open=""><summary>Bag-of-words representation of the documents.</summary><pre id="9de81b30-f9a7-42a4-a9c0-5846291f1933" class="code"><code>corpus = [dictionary.doc2bow(doc) for doc in docs]
+#MmCorpus.serialize(&quot;models/corpus.mm&quot;, corpus)
+print(&#x27;Number of unique tokens: %d&#x27; % len(dictionary))
+print(&#x27;Number of chunks: %d&#x27; % len(corpus))</code></pre></details></li></ul><ul id="fb877252-5a0b-44cb-89f5-1aa5d247b33d" class="toggle"><li><details open=""><summary>Model LDA</summary><pre id="63d83ad0-b49a-4df1-ba1d-7345bd4f66b3" class="code"><code>from gensim.models import LdaMulticore
+params = {&#x27;passes&#x27;: 10, &#x27;random_state&#x27;: seed}
+base_models = dict()
+model = LdaMulticore(corpus=corpus, num_topics=4, id2word=dictionary, workers=6,
+                passes=params[&#x27;passes&#x27;], random_state=params[&#x27;random_state&#x27;])</code></pre></details></li></ul><ul id="d77fd423-3c65-429d-bcd7-0caa56062e9b" class="toggle"><li><details open=""><summary>Show topics</summary><pre id="dbc2a18c-46bc-42ad-8b9f-e8f29bd1f0b6" class="code"><code>model.show_topics(num_words=5)</code></pre></details></li></ul><ul id="2b82b02f-8b4f-4b25-b619-f0ec889589a3" class="toggle"><li><details open=""><summary>Plot topics</summary><pre id="82a2408d-b3c2-4bff-bdb6-46708f580dca" class="code"><code>data =  pyLDAvis.gensim.prepare(model, corpus, dictionary)
+pyLDAvis.display(data)</code></pre></details></li></ul><ul id="81bed5eb-9577-43f0-bb8b-96f5bb43b226" class="toggle"><li><details open=""><summary>Accuracy</summary><pre id="86c11b30-febf-4728-9dff-7cfe32216d5c" class="code"><code># assignment of cluster
+sent_to_cluster = list()
+for n,doc in enumerate(corpus):
+    if doc:
+        cluster = max(model[doc],key=lambda x:x[1])
+        sent_to_cluster.append(cluster[0])
+# accuracy
+from collections import Counter
+for book, cluster in book_id.items():
+    assignments = list()
+    for real,given in zip(chunk_class,sent_to_cluster):
+        if real == cluster:
+            assignments.append(given)
+    most_common,num_most_common = Counter(assignments).most_common(1)[0] # 4, 6 times
+    print(book,&quot;:&quot;,most_common,&quot;-&quot;,num_most_common)
+    print(&quot;Accuracy:&quot;,num_most_common/limit)
+    print(&quot;------&quot;)</code></pre></details></li></ul><p id="717f0dec-4db8-46b7-8dbb-924dd5ac9713" class="">
+</p></details></li></ul><ul id="60edcc0c-01a4-489e-bca6-050bc7302df5" class="toggle"><li><details open=""><summary>Task 4: Semantic analysis based on lexical categories</summary><ul id="0bd9b6c2-d2f5-4862-b0ff-11d5da3d4262" class="toggle"><li><details open=""><summary>Studying Pride and Prejudice</summary><pre id="a96ed88a-00e1-4db7-9eac-9d0dbda7d7f4" class="code"><code>nlp = spacy.load(&#x27;en&#x27;)
+doc = nlp(books[3])
+empath_features = lexicon.analyze(doc.text,categories = [&quot;disappointment&quot;, &quot;pain&quot;, &quot;joy&quot;, &quot;beauty&quot;, &quot;affection&quot;])</code></pre></details></li></ul><ul id="af3d0456-c925-441d-bb5b-5f940b96943f" class="toggle"><li><details open=""><summary>the evolution of topics</summary><pre id="c5dd8a78-a8f8-46e4-abc8-00e193e6e59b" class="code"><code>bins = range(0,len(doc.text),150000)
+love = []
+pain = []
+beauty = []
+affection = []
+
+
+for cnt,i in enumerate(bins[:-1]):
+    empath_features = lexicon.analyze(doc.text[bins[cnt]:bins[cnt+1]],
+                                      categories = [&quot;love&quot;, &quot;pain&quot;, &quot;joy&quot;, &quot;beauty&quot;, &quot;affection&quot;], normalize = True)
+    love.append(empath_features[&quot;love&quot;])
+    pain.append(empath_features[&quot;pain&quot;])
+    beauty.append(empath_features[&quot;beauty&quot;])
+    affection.append(empath_features[&quot;affection&quot;])
+plt.plot(love,label = &quot;love&quot;)
+plt.plot(beauty, label = &quot;beauty&quot;)
+plt.plot(affection, label = &quot;affection&quot;)
+plt.plot(pain,label = &quot;pain&quot;)
+
+plt.xlabel(&quot;progression in the book&quot;)
+plt.ylabel(&quot;frequency of a category&quot;)
+plt.legend()</code></pre></details></li></ul><ul id="427ba6d2-8bda-4347-b8ca-9caf87956123" class="toggle"><li><details open=""><summary>create custom categories based on seed terms</summary><pre id="fdb45855-c6f4-48fc-bf12-f11f84e34da5" class="code"><code>lexicon.create_category(&quot;healthy_food&quot;, [&quot;healthy_food&quot;,&quot;low_carb&quot;,&quot;kale&quot;,&quot;avocado&quot;], model=&quot;nytimes&quot;)</code></pre><p id="d0a9a608-3ac0-4cc2-a205-2640eb601553" class="">model can be: reddit, nytimes</p></details></li></ul></details></li></ul><p id="94410c9d-a066-452a-966f-11f882ea7595" class="">
+</p><p id="aba2ae8f-1853-4a9d-8705-2847226b121d" class="">
+</p><p id="6de87eb1-d272-4e83-969d-e749172304b0" class="">
+</p><p id="c6866782-4001-42c7-b33e-eb9dd7f3e441" class="">
+</p><p id="c4dcd909-73a6-40c7-ad9a-691097656130" class="">
+</p></li></ol></details></li></ul><ul id="90c4af76-4144-47b8-8bcc-d4858c780345" class="toggle"><li><details open=""><summary><a href="http://localhost:8889/tree/Documents/GitHub/2020/Tutorials/10%20-%20Handling%20text%202">10 - Handling text 2</a></summary><ul id="e0f02948-3d4c-4ae6-8790-8e36da73169b" class="toggle"><li><details open=""><summary>Read data in txt,create df</summary><pre id="4b5ede1d-a82b-475d-90ad-2e6ec61b157a" class="code"><code>season = &quot;&quot;
+episode = &quot;&quot;
+scene = &quot;&quot;
+data = []
+with open(&quot;data/all_scripts.txt&quot;) as f:
+    for line in f.readlines():
+        line = line[:-1]
+        if line.startswith(&quot;&gt;&gt; &quot;):
+            season = int(line[10:12])
+            episode = line[3:]
+            continue
+        if line.startswith(&quot;&gt; &quot;):
+            scene = line[2:]
+            continue
+        character, line = line.split(&quot;: &quot;, 1)
+        data.append([season, episode, scene, character, line])
+lines = pd.DataFrame(data, columns=[&quot;Season&quot;, &quot;Episode&quot;, &quot;Scene&quot;, &quot;Character&quot;, &quot;Line&quot;])</code></pre></details></li></ul><ul id="a47f254e-0bd0-402f-be95-9a6b1f725a4e" class="toggle"><li><details open=""><summary>Replace punctuation marks and lowercase all the text</summary><pre id="a452ea92-e097-4b1a-9623-7aa280bce53d" class="code"><code>def clean_line(line):
+    for char in EXCLUDE_CHARS:
+        line = line.replace(char, &#x27; &#x27;)
+    return line.lower()
+lines[&quot;Line&quot;] = lines[&quot;Line&quot;].apply(clean_line)
+lines.head()</code></pre></details></li></ul><ul id="57d7f8ce-a8f4-4cfd-a7bb-6ad98c944ff5" class="toggle"><li><details open=""><summary>Count  and plot word frequency</summary><pre id="c28ff284-0129-4510-8e1f-da2ca9b05205" class="code"><code>corpus_frequency = pd.concat([pd.Series(row[&#x27;Line&#x27;].split(&#x27; &#x27;)) for _, row in lines.iterrows()]).reset_index()
+corpus_frequency.columns = [&quot;Frequency&quot;, &quot;Word&quot;]
+corpus_frequency = corpus_frequency.groupby(&quot;Word&quot;).count()
+
+corpus_frequency.plot.hist(by=&quot;Frequency&quot;, bins=100, title=&quot;Frequency histogram&quot;)
+corpus_frequency.plot.hist(by=&quot;Frequency&quot;, loglog=True, bins=np.logspace(0, 6, 100),
+                           title=&quot;Frequency histogram (loglog scale)&quot;);</code></pre></details></li></ul><ul id="b15615c7-a884-409b-a710-2dd6c5716397" class="toggle"><li><details open=""><summary>Count number of word per character</summary><pre id="f57a4d38-0ca0-4dbb-a763-7992dce6ee88" class="code"><code>lines[&quot;Words&quot;] = lines[&quot;Line&quot;].apply(lambda x: len(x.split(&#x27; &#x27;)))
+words_per_char = lines.groupby(&quot;Character&quot;).sum()[&quot;Words&quot;]
+words_per_char[recurrent_chars.index]</code></pre></details></li></ul><ul id="e5ba8c26-5f35-494c-a6fd-6557e4d2f4fc" class="toggle"><li><details open=""><summary>TfidfVectorizer with stopwords and tokenizer</summary><pre id="e7a75ce9-5f9f-472b-bdee-484accb3ae42" class="code"><code>with open(&quot;helpers/stopwords.txt&quot;) as f:
+    stop_words = list(map(lambda x: x[:-1], f.readlines()))
+tfidf = TfidfVectorizer(stop_words=stop_words, tokenizer=simple_tokeniser, min_df=2)
+train_vectors = tfidf.fit_transform(train_set[&quot;Line&quot;])
+test_vectors = tfidf.transform(test_set[&quot;Line&quot;])</code></pre></details></li></ul><ul id="e33e31ac-2b7b-4f05-ba2b-89021eae235f" class="toggle"><li><details open=""><summary>Find the set of all words in the training set that are only uttered by Sheldon</summary><pre id="cdc4535e-1195-46e7-bb9d-3321c071ac44" class="code"><code>words_for_chars = pd.concat([pd.Series(row[&quot;Character&quot;], row[&#x27;Line&#x27;].split(&#x27; &#x27;))
+                             for _, row in lines.iterrows()]).reset_index()
+words_for_chars.columns = [&quot;Word&quot;, &quot;Character&quot;]
+
+words_for_chars = words_for_chars.groupby(&quot;Word&quot;)[&quot;Character&quot;].apply(set)
+sheldon_words = words_for_chars[words_for_chars.apply(lambda x: (&quot;Sheldon&quot; in x) and (len(x) == 1))].index
+
+def contains_sheldon_words(line):
+    for word in sheldon_words:
+        if word in line:
+            return True
+    return False
+test_pred = test_set[&quot;Line&quot;].apply(contains_sheldon_words)
+test_true = test_set[&quot;Character&quot;] == &quot;Sheldon&quot;</code></pre></details></li></ul><ul id="5273eba0-8d5d-4272-9c5a-c8962eddc6be" class="toggle"><li><details open=""><summary>Use SVD</summary><pre id="9b4316fb-2970-4b52-8c43-7c0a4cd99f0d" class="code"><code>svd = TruncatedSVD(n_components=25)
+train_svd = svd.fit_transform(train_vectors)
+test_svd = svd.transform(test_vectors)</code></pre></details></li></ul><ul id="19019dd5-416b-4647-bb19-05c40f94da74" class="toggle"><li><details open=""><summary>Logistic Regression</summary><pre id="453aacd8-24f9-4000-b94e-930bcfdf0aa1" class="code"><code>model = LogisticRegressionCV(cv=10)
+train_labels = train_set[&quot;Character&quot;] == &quot;Sheldon&quot;
+model.fit(train_svd, train_labels)
+test_pred = model.predict(test_svd)
+train_pred = model.predict(train_svd)</code></pre></details></li></ul><ul id="7a69d498-5ec4-4304-9d97-e79cd2aedd97" class="toggle"><li><details open=""><summary>All metrics</summary><pre id="19ee2252-8468-4894-b8b1-49b49f6a4349" class="code"><code>def confusion_matrix(test, pred, positive=1):
+    negative = 0 if positive == 1 else 1
+    cm = np.zeros((2,2))
+    test = test.values
+    cm[0,0] = np.logical_and(pred == positive, test == positive).sum()
+    cm[0,1] = np.logical_and(pred == positive, test == negative).sum()
+    cm[1,0] = np.logical_and(pred == negative, test == positive).sum()
+    cm[1,1] = np.logical_and(pred == negative, test == negative).sum()
+    df = pd.DataFrame(cm.astype(int), columns=[&quot;Positive&quot;, &quot;Negative&quot;])
+    df.index = [&quot;Positive Prediction&quot;, &quot;Negative Prediction&quot;]
+    return df
+
+def accuracy(confusion_matrix):
+    return (confusion_matrix[0,0] + confusion_matrix[1,1]) / confusion_matrix.sum()
+
+def precision(confusion_matrix):
+    if (confusion_matrix[0,:].sum() == 0):
+        return 1
+    return confusion_matrix[0,0] / confusion_matrix[0,:].sum()
+
+def recall(confusion_matrix):
+    if (confusion_matrix[:,0].sum() == 0):
+        return 1
+    return confusion_matrix[0,0] / confusion_matrix[:,0].sum()
+
+def fscore(confusion_matrix):
+    p = precision(confusion_matrix)
+    r = recall(confusion_matrix)
+    return 2 * p * r / (p+r)
+
+def stats(confusion_matrix):
+    confusion_matrix = confusion_matrix.values
+    return {&quot;accuracy&quot;: accuracy(confusion_matrix), &quot;precision&quot;:precision(confusion_matrix),
+            &quot;recall&quot;: recall(confusion_matrix), &quot;fscore&quot;: fscore(confusion_matrix)}
+
+print(&quot;Statistics for class 1 on train set:\n&quot;, stats(confusion_matrix(train_labels, train_pred, positive=1)))
+print(&quot;Statistics for class 0 on train set:\n&quot;, stats(confusion_matrix(train_labels, train_pred, positive=0)))
+print(&quot;Statistics for class 1 on test set:\n&quot;, stats(confusion_matrix(test_true, test_pred, positive=1)))
+print(&quot;Statistics for class 0 on test set:\n&quot;, stats(confusion_matrix(test_true, test_pred, positive=0)))</code></pre></details></li></ul></details></li></ul><ul id="b6dff60b-8575-4c8b-b322-04d814f895d2" class="toggle"><li><details open=""><summary><a href="http://localhost:8889/tree/Documents/GitHub/2020/Tutorials/11%20-%20Handling%20networks">11 - Handling networks</a> Tutorial</summary><ul id="7104c56d-f786-4403-b75c-41532513d6a3" class="toggle"><li><details open=""><summary>Helper function for plotting the degree distribution of a Graph</summary><pre id="f4676708-be1d-4af7-aa1c-f8c4a04514f3" class="code"><code># Helper function for plotting the degree distribution of a Graph
+def plot_degree_distribution(G):
+    degrees = {}
+    for node in G.nodes():
+        degree = G.degree(node)
+        if degree not in degrees:
+            degrees[degree] = 0
+        degrees[degree] += 1
+    sorted_degree = sorted(degrees.items())
+    deg = [k for (k,v) in sorted_degree]
+    cnt = [v for (k,v) in sorted_degree]
+    fig, ax = plt.subplots()
+    plt.bar(deg, cnt, width=0.80, color=&#x27;b&#x27;)
+    plt.title(&quot;Degree Distribution&quot;)
+    plt.ylabel(&quot;Frequency&quot;)
+    plt.xlabel(&quot;Degree&quot;)
+    ax.set_xticks([d+0.05 for d in deg])
+    ax.set_xticklabels(deg)</code></pre></details></li></ul><ul id="34d76bdc-4c13-4643-85a0-07b53b2c1876" class="toggle"><li><details open=""><summary>Helper function for printing various graph properties: shortest path Length, Longest shortest path = diameter, Sparsity, Global clustering coefficient aka Transitivity</summary><pre id="ca3a8b24-ec8c-406f-838a-1fad82152d33" class="code"><code># Helper function for printing various graph properties
+def describe_graph(G):
+    print(nx.info(G))
+    if nx.is_connected(G):
+        print(&quot;Avg. Shortest Path Length: %.4f&quot; %nx.average_shortest_path_length(G))
+        print(&quot;Diameter: %.4f&quot; %nx.diameter(G)) # Longest shortest path
+    else:
+        print(&quot;Graph is not connected&quot;)
+        print(&quot;Diameter and Avg shortest path length are not defined!&quot;)
+    print(&quot;Sparsity: %.4f&quot; %nx.density(G))  # #edges/#edges-complete-graph
+    # #closed-triplets(3*#triangles)/#all-triplets
+    print(&quot;Global clustering coefficient aka Transitivity: %.4f&quot; %nx.transitivity(G))</code></pre></details></li></ul><ul id="be7e4dc8-b3b1-43ef-a8ea-5c2b29f6816e" class="toggle"><li><details open=""><summary>Helper function for visualizing the graph</summary><pre id="f5525aa3-6141-4e68-bc11-3034308dad10" class="code"><code># Helper function for visualizing the graph
+def visualize_graph(G, with_labels=True, k=None, alpha=1.0, node_shape=&#x27;o&#x27;):
+    #nx.draw_spring(G, with_labels=with_labels, alpha = alpha)
+    pos = nx.spring_layout(G, k=k)
+    if with_labels:
+        lab = nx.draw_networkx_labels(G, pos, labels=dict([(n, n) for n in G.nodes()]))
+    ec = nx.draw_networkx_edges(G, pos, alpha=alpha)
+    nc = nx.draw_networkx_nodes(G, pos, nodelist=G.nodes(), node_color=&#x27;g&#x27;, node_shape=node_shape)
+    plt.axis(&#x27;off&#x27;)</code></pre></details></li></ul><ul id="ca0cb25b-5c05-4b8a-b042-5c1168beb224" class="toggle"><li><details open=""><summary>Different Graphs: Erdős–Rényi, Zachary&#x27;s Karate Club Network</summary><pre id="836f5813-a6e6-4b2e-99ee-8cc165ca675a" class="code"><code>n = 10  # 10 nodes
+m = 20  # 20 edges
+
+erG = nx.gnm_random_graph(n, m)
+# Zachary&#x27;s Karate Club Network
+karateG = nx.karate_club_graph()
+nx.draw_circular(karateG, with_labels=True,  node_color=&#x27;g&#x27;, alpha = 0.8)
+</code></pre></details></li></ul><ul id="45141ade-f262-480c-a213-5a0153361039" class="toggle"><li><details open=""><summary>Quaker network from pandas</summary><pre id="bbe42546-554b-4040-82be-cd10ba8cacf7" class="code"><code>quakerG =nx.from_pandas_edgelist(edges, &#x27;Source&#x27;, &#x27;Target&#x27;, edge_attr=None, create_using= nx.Graph())
+describe_graph(quakerG)</code></pre></details></li></ul><ul id="5656daf7-c9b8-4212-b685-6de2ad793c7e" class="toggle"><li><details open=""><summary>Add nodes attributes</summary><pre id="f4504ed1-4721-4d75-a7a8-01fae9fb6fe8" class="code"><code># add node attributes by passing dictionary of type name -&gt; attribute
+nx.set_node_attributes(quakerG, nodes[&#x27;Role&#x27;].to_dict(), &#x27;Role&#x27; )
+nx.set_node_attributes(quakerG, nodes[&#x27;Gender&#x27;].to_dict(), &#x27;Gender&#x27; )
+nx.set_node_attributes(quakerG, nodes[&#x27;Birthdate&#x27;].to_dict(), &#x27;Birthdate&#x27; )
+nx.set_node_attributes(quakerG, nodes[&#x27;Deathdate&#x27;].to_dict(), &#x27;Deathdate&#x27; )
+nx.set_node_attributes(quakerG, nodes[&#x27;Quaker&#x27;].to_dict(), &#x27;Quaker&#x27; )</code></pre></details></li></ul><ul id="179cfb47-c476-4c94-9abe-ce0470fba273" class="toggle"><li><details open=""><summary>Connected Components = set of nodes that are connected</summary><pre id="5da1f174-0222-48ef-8d03-78dec4ce4d02" class="code"><code>print(nx.is_connected(quakerG))
+comp = list(nx.connected_components(quakerG))
+print(&#x27;The graph contains&#x27;, len(comp), &#x27;connected components&#x27;)</code></pre></details></li></ul><ul id="2a320e8f-5906-4a51-a5b1-cacbc232f5de" class="toggle"><li><details open=""><summary>Node that have maximum connections, number of these connections == a giant component.</summary><pre id="7a7c9c88-df80-4456-8226-c3a234611fb1" class="code"><code>largest_comp = max(comp, key=len)
+percentage_lcc = len(largest_comp)/quakerG.number_of_nodes() * 100
+print(&#x27;The largest component has&#x27;, len(largest_comp), &#x27;nodes&#x27;, &#x27;accounting for %.2f&#x27;% percentage_lcc, &#x27;% of the nodes&#x27;)</code></pre></details></li></ul><ul id="5ceb5716-95ac-4d11-b760-9d5ff1b22d9d" class="toggle"><li><details open=""><summary>Shortest Paths</summary><pre id="8538ee7a-8644-461c-b9fb-837d8401132e" class="code"><code>fell_whitehead_path = nx.shortest_path(quakerG, source=&quot;Margaret Fell&quot;, target=&quot;George Whitehead&quot;)
+print(&quot;Shortest path between Fell and Whitehead:&quot;, fell_whitehead_path)</code></pre></details></li></ul><ul id="2869535b-a9d4-4e7e-b7e4-191130f101d3" class="toggle"><li><details open=""><summary>Diameter of a giant component</summary><pre id="dccd3d76-8793-41cf-a6f9-d0d080246ab8" class="code"><code># take the largest component and analyse its diameter = longest shortest-path
+lcc_quakerG = quakerG.subgraph(largest_comp)
+print(&quot;The diameter of the largest connected component is&quot;, nx.diameter(lcc_quakerG))
+print(&quot;The avg shortest path length of the largest connected component is&quot;, nx.average_shortest_path_length(lcc_quakerG))</code></pre></details></li></ul><ul id="a951ce75-7c36-409a-972f-764c4448a065" class="toggle"><li><details open=""><summary>Transitivity = global clustering coefficient = the ratio of all existing triangles (closed triples) over all possible triangles (open and closed triplets)</summary><pre id="191a960c-a709-465e-9764-9e2849b5f1c7" class="code"><code>nx.transitivity(quakerG)</code></pre></details></li></ul><ul id="839a60be-6b3b-4ebb-8932-625d105d4386" class="toggle"><li><details open=""><summary>clustering coefficient = the ratio of the number of edges to the number of all possible edges among the neighbors of a node.</summary><pre id="820739c6-3c2b-4464-940b-81d5b5b0d3a9" class="code"><code>print(nx.clustering(quakerG, [&#x27;Alexander Parker&#x27;, &#x27;John Crook&#x27;]))</code></pre></details></li></ul><ul id="50e8dc67-440e-4593-8b66-0443280a28f6" class="toggle"><li><details open=""><summary>Draw subgraph</summary><pre id="5831d151-cb48-48f8-9d14-9f7bc322f956" class="code"><code># Lets check by looking at the subgraphs induced by Alex and John
+subgraph_Alex = quakerG.subgraph([&#x27;Alexander Parker&#x27;]+list(quakerG.neighbors(&#x27;Alexander Parker&#x27;)))
+subgraph_John = quakerG.subgraph([&#x27;John Crook&#x27;]+list(quakerG.neighbors(&#x27;John Crook&#x27;)))
+nx.draw_spring(subgraph_Alex, with_labels=True)
+nx.draw_circular(subgraph_John, with_labels=True)</code></pre></details></li></ul><ul id="44194fc7-0c52-422a-9177-b600593d9d61" class="toggle"><li><details open=""><summary>the most important quarkers: defined by degree, betweeness centrality, Katz Centrality (the generalization over degree centrality) </summary><p id="536137ab-777b-4658-8ac6-2f4517abb707" class="">Degree: the more people you know, the more important you are!</p><pre id="faff3018-e639-4388-b91c-1388ab59ce37" class="code"><code>degrees = dict(quakerG.degree(quakerG.nodes()))
+sorted_degree = sorted(degrees.items(), key=itemgetter(1), reverse=True)
+
+# And the top 5 most popular quakers are.. 
+for quaker, degree in sorted_degree[:5]:
+    print(quaker, &#x27;who is&#x27;, quakerG.nodes[quaker][&#x27;Role&#x27;], &#x27;knows&#x27;, degree, &#x27;people&#x27;)</code></pre><p id="d0fff859-38f9-420c-8462-7183b4b14cf2" class="">Betweeness centrality: the more shortest paths pass through a node, the more important it is!</p><pre id="a0229a35-38a9-4cc4-8557-d2a81e24802e" class="code"><code># Compute betweenness centrality
+betweenness = nx.betweenness_centrality(quakerG)
+# Assign the computed centrality values as a node-attribute in your network
+nx.set_node_attributes(quakerG, betweenness, &#x27;betweenness&#x27;)
+sorted_betweenness = sorted(betweenness.items(), key=itemgetter(1), reverse=True)
+
+for quaker, bw in sorted_betweenness[:5]:
+    print(quaker, &#x27;who is&#x27;, quakerG.nodes[quaker][&#x27;Role&#x27;], &#x27;has betweeness: %.3f&#x27; %bw)</code></pre><p id="f7184273-bfb4-45c3-bc3a-1a186de8e588" class="">Katz Centrality (the generalization over degree centrality). If you were to have a directed one, use separate metrics for indegree and outdegree.</p><pre id="c2723f7a-2a55-485a-a741-f201fba95738" class="code"><code>degrees = dict(quakerG.degree(quakerG.nodes()))
+
+katz = nx.katz_centrality(quakerG)
+nx.set_node_attributes(quakerG, katz, &#x27;katz&#x27;)
+sorted_katz = sorted(katz.items(), key=itemgetter(1), reverse=True)
+
+# And the top 5 most popular quakers are.. 
+for quaker, katzc in sorted_katz[:5]:
+    print(quaker, &#x27;who is&#x27;, quakerG.nodes[quaker][&#x27;Role&#x27;], &#x27;has katz-centrality: %.3f&#x27; %katzc)</code></pre></details></li></ul><ul id="82a0ee4c-4f81-40dd-8957-db02e9cd3d32" class="toggle"><li><details open=""><summary>The quaker communities</summary><ul id="2d813b32-75d3-4ad9-bb2c-61f1cdeccb34" class="toggle"><li><details open=""><summary>Girvan Newman</summary><p id="6d6a4289-b9cc-4703-96fd-da217912d993" class="">Idea: Edges possessing high betweeness centrality separate communities. Let&#x27;s apply this on our toy sample graph (G) to get a better understanding of the idea.</p><pre id="b9932568-5330-4b62-8a59-2f97626e5e55" class="code"><code>comp = girvan_newman(G)
+it = 0
+for communities in itertools.islice(comp, 4):
+    it +=1
+    print(&#x27;Iteration&#x27;, it)
+    print(tuple(sorted(c) for c in communities))
+visualize_graph(G,alpha=0.7)</code></pre></details></li></ul><ul id="8796256d-9cf6-4181-b3d6-3c83a4c43d03" class="toggle"><li><details open=""><summary>The Louvain method</summary><p id="2458a16c-3881-4e82-bab6-2d20ac290ccf" class="">Idea: It proceeds the other way around: initially every node is considered as a community. The communities are traversed, and for each community it is tested whether by joining it to a neighboring community, we can obtain a better clustering.</p><pre id="51ace96c-a8c4-4515-8b49-43a1b920f255" class="code"><code>partition = community_louvain.best_partition(quakerG)
+# add it as an attribute to the nodes
+for n in quakerG.nodes:
+    quakerG.nodes[n][&quot;louvain&quot;] = partition[n]
+# plot it out
+pos = nx.spring_layout(quakerG,k=0.2)
+ec = nx.draw_networkx_edges(quakerG, pos, alpha=0.2)
+nc = nx.draw_networkx_nodes(quakerG, pos, nodelist=quakerG.nodes(), node_color=[quakerG.nodes[n][&quot;louvain&quot;] for n in quakerG.nodes], 
+                            node_size=100, cmap=plt.cm.jet)
+plt.axis(&#x27;off&#x27;)
+plt.show()</code></pre><p id="89622707-3e3a-46f5-a8ad-46e79229521b" class="">Take all the nodes that belong to James&#x27; cluster</p><pre id="981be2a2-bde7-4cd9-a5e8-e067e87cf2d7" class="code"><code>cluster_James = partition[&#x27;James Nayler&#x27;]
+# Take all the nodes that belong to James&#x27; cluster
+members_c = [q for q in quakerG.nodes if partition[q] == cluster_James]
+# get info about these quakers
+for quaker in members_c:
+    print(quaker, &#x27;who is&#x27;, quakerG.nodes[quaker][&#x27;Role&#x27;], &#x27;and died in &#x27;,quakerG.nodes[quaker][&#x27;Deathdate&#x27;])</code></pre></details></li></ul></details></li></ul><ul id="715d0573-d92a-4463-bd26-a72aeb6d1c09" class="toggle"><li><details open=""><summary>Homophily in quakers</summary><p id="7439788c-5cc7-42ba-843b-076749bc8dff" class="">How likely is it that two quakers who have the same attribute are linked?</p><pre id="668bfa20-2b08-4907-9c52-a4e6bd30d594" class="code"><code>nx.attribute_assortativity_coefficient(quakerG, &#x27;Gender&#x27;)
+nx.numeric_assortativity_coefficient(quakerG, &#x27;Deathdate&#x27;)</code></pre></details></li></ul></details></li></ul><ul id="d1bf04c2-d7d2-4a4f-aadd-2671a5faa7e9" class="toggle"><li><details open=""><summary><a href="http://localhost:8889/tree/Documents/GitHub/2020/Tutorials/11%20-%20Handling%20networks">11 - Handling networks</a> exercise</summary><ul id="89f51541-5f63-46ae-93d2-7845b89c86da" class="toggle"><li><details open=""><summary>Create all the sets of people in the same scene:</summary><pre id="51d5ae2f-bb74-4844-b3b9-6e53347437f0" class="code"><code>import re
+
+def get_gossip(scene_lines):
+    in_scene_characters = set(scene_lines[&quot;Character&quot;])
+    # {Penny, Leonard, Sheldon, Howard}
+    return in_scene_characters
+
+in_same_scene = lines_filtered.groupby([&quot;Season&quot;, &quot;Episode&quot;, &quot;Scene&quot;]).apply(get_gossip).reset_index(drop=True)
+in_same_scene.head()</code></pre></details></li></ul><ul id="aec3e4d4-8e52-4d6c-91ba-0ab465f886a3" class="toggle"><li><details open=""><summary>Familiarity graph</summary><pre id="3dd579a2-987d-45dd-9721-20059b89c304" class="code"><code>import collections
+
+# Example with Counter
+pairs = []
+for idx, values in in_same_scene.iteritems():
+    characters = list(values)
+    while len(characters)&gt;0:
+        current = characters.pop(0)
+        for c in characters:
+            pairs.append(tuple(sorted([current, c])))
+        
+common_scenes = collections.Counter(pairs)
+
+familiarity_graph = nx.Graph()
+
+for key in common_scenes:
+    familiarity_graph.add_edge(key[0], key[1], weight=common_scenes[key])
+
+edges = familiarity_graph.edges()
+weights = [0.01*familiarity_graph[u][v][&#x27;weight&#x27;] for u,v in edges]
+
+nx.draw_shell(familiarity_graph, with_labels=True, alpha = 0.6, node_size=2000, width=weights)</code></pre></details></li></ul><ul id="9eda39b0-8a6b-4f42-a71a-58d3861389c6" class="toggle"><li><details open=""><summary>Gossip graph</summary><pre id="0bb92cb5-bad6-4167-b747-a9bc37e8d0e3" class="code"><code>import re
+
+def get_gossip(scene_lines):
+    gossip_mentions = []
+    # Characters speaking in the current scene
+    in_scene_characters = set(scene_lines[&quot;Character&quot;])
+    for idx, row in scene_lines.iterrows():
+        # split where is not a letter
+        line_words = re.split(&quot;[^a-zA-Z]+&quot;, row[&quot;Line&quot;])
+        # Token is in the list of characters and not in the current scene
+        gossip = [c for c in line_words if c in recurrent_characters and c not in in_scene_characters]
+        if len(gossip)&gt;0:
+            gossip_mentions.append([{&quot;Character&quot;: row[&quot;Character&quot;], &quot;Mention&quot;: c} for c in gossip])
+    # Example: [[{&#x27;Character&#x27;: &#x27;Penny&#x27;, &#x27;Mentions&#x27;: &#x27;Raj&#x27;}], ...]
+    return gossip_mentions
+
+gm = lines_filtered.groupby([&quot;Season&quot;, &quot;Episode&quot;, &quot;Scene&quot;]).apply(get_gossip).reset_index(drop=True)
+
+all_mentions = []
+for idx, values in gm.iteritems():
+    for mentions in values:
+        all_mentions += mentions
+        
+all_mentions = pd.DataFrame(all_mentions)
+all_mentions.head()
+node_weights = all_mentions.value_counts([&quot;Character&quot;, &quot;Mention&quot;]).reset_index()
+node_weights.columns = [&quot;Character&quot;, &quot;Mention&quot;, &quot;weight&quot;]
+node_weights.head()</code></pre><pre id="cf7ba39b-e6f3-4f11-90ae-9ea278e8fcd0" class="code"><code>gossip_graph = nx.DiGraph()
+
+for idx, r in node_weights.iterrows():
+    gossip_graph.add_edge(r[&quot;Character&quot;], r[&quot;Mention&quot;], weight=r[&quot;weight&quot;])
+    
+weighted_degree = dict(gossip_graph.degree(weight=&#x27;weight&#x27;))
+
+edges = gossip_graph.edges()
+weights = [0.005*gossip_graph[u][v][&#x27;weight&#x27;] for u,v in edges]
+
+nx.draw_shell(gossip_graph, with_labels=True, alpha = 0.6, width=weights,
+              node_size=[v * 3 for v in weighted_degree.values()])</code></pre></details></li></ul><ul id="acce74ce-ad9d-4b35-8c2a-4d9d3afade56" class="toggle"><li><details open=""><summary>Who is the most mentioned person = the biggest degree on node</summary><pre id="a1cbde18-a193-4055-8679-9792743c7733" class="code"><code>import collections
+
+weighted_degree = collections.Counter(dict(gossip_graph.degree(weight=&#x27;weight&#x27;)))
+weighted_degree.most_common()[0]</code></pre></details></li></ul><ul id="31d3c2d2-8276-430f-b1fc-26b01b156a0f" class="toggle"><li><details open=""><summary>Every character in the show is familiar with everyone else through at most one intermediary = Shortest path</summary><pre id="d9f30f21-6196-4136-a17c-831ea4408913" class="code"><code>nodes = list(familiarity_graph.nodes)
+
+one_intermediary = True
+for source_idx in range(0, len(familiarity_graph.nodes)):
+    for destination_idx in range(source_idx+1, len(familiarity_graph.nodes)):
+        shortest_path = nx.shortest_path_length(familiarity_graph, 
+                                                source=nodes[source_idx], 
+                                                target=nodes[destination_idx])
+        if shortest_path&gt;2:
+            one_intermediary = False
+            break
+
+print(&quot;The claim of Sheldon is {}&quot;.format(one_intermediary))</code></pre></details></li></ul><ul id="0440259e-b621-45a0-ab82-b4f62573902e" class="toggle"><li><details open=""><summary>The character through whom the largest number of these indirect familiarities happen = betweeness centrality</summary><pre id="3d3be1e8-7136-4abf-b1ff-e92ca301a864" class="code"><code>most_central_people = sorted(nx.betweenness_centrality(familiarity_graph).items(), key=lambda r: -r[1])
+most_central_people[:5]</code></pre></details></li></ul><ul id="a3349cbb-afde-4b1c-b48a-c45c970962f5" class="toggle"><li><details open=""><summary>Check completeness of graph</summary><pre id="d473ead7-378c-4275-ac78-91c6a9f8f775" class="code"><code>complete = True
+for c in gossip_graph.nodes:
+    in_degree = gossip_graph.in_degree(c, weight=None)
+    if in_degree &lt; total_characters-1:
+        complete = False
+        break
+        
+# Alternative: use out_degree
+
+print(&quot;The claim of Sheldon that every recurrent character gossips about all the others is {}&quot;.format(complete))</code></pre></details></li></ul><ul id="77701ea2-8fdf-4f44-bedd-18a6791e7ab1" class="toggle"><li><details open=""><summary>If for every pair of recurrent characters, one of them has gossiped about the other if and only if they know each other = has_edge from another graph</summary><pre id="7e622bca-a35b-4682-9c2f-b92c8c68a58b" class="code"><code># For every gossip edge, check if familiarity edge exists
+
+for ge in gossip_graph.edges:
+    source = ge[0]
+    destination = ge[1]
+    if not familiarity_graph.has_edge(source, destination):
+        print(&quot;{} speaks about {} without sharing a scene&quot;.format(source, destination))</code></pre></details></li></ul></details></li></ul><ul id="f22d6312-4a9f-469c-a790-cae29e2faa4f" class="toggle"><li><details open=""><summary><a href="http://localhost:8889/tree/Documents/GitHub/2020/Tutorials/12%20-%20Scaling%20up">12 - Scaling up</a> Tutorial</summary><ul id="62004958-21fb-4f42-b3ac-1d4bc2c392a5" class="toggle"><li><details open=""><summary>Initialize the Spark context</summary><pre id="717eb6ac-6c0e-4d06-b0ff-125466c385c9" class="code"><code>spark = SparkSession.builder.getOrCreate()
+sc = spark.sparkContext</code></pre></details></li></ul><ul id="d025a07e-e740-457d-9243-354ac6051702" class="toggle"><li><details open=""><summary>Load dataset</summary><pre id="1f58d9b7-65de-48c8-99a7-eb5c379b13ad" class="code"><code>Bombing_Operations = spark.read.json(&quot;Bombing_Operations.json.gz&quot;)
+Aircraft_Glossary = spark.read.json(&quot;Aircraft_Glossary.json.gz&quot;)</code></pre></details></li></ul><ul id="1f8e35e3-1e12-468d-bf3c-6783085f539e" class="toggle"><li><details open=""><summary>PrintSchema(), Get a sample with take(), show(), .count()</summary></details></li></ul><ul id="e0f60390-0803-4959-87f9-2fc232ddac11" class="toggle"><li><details open=""><summary>Group the missions by ContryFlyingMission and count how many records exist</summary><pre id="61f06c23-3f8d-41ef-901a-0f90437cb62e" class="code"><code>missions_counts = Bombing_Operations.groupBy(&quot;ContryFlyingMission&quot;)\
+                                    .agg(count(&quot;*&quot;).alias(&quot;MissionsCount&quot;))\
+                                    .sort(desc(&quot;MissionsCount&quot;))
+missions_counts.show()</code></pre><pre id="06ddf8c6-14e7-4fd8-b5c9-2f251e39d8b9" class="code"><code>Bombing_Operations.registerTempTable(&quot;Bombing_Operations&quot;)
+
+query = &quot;&quot;&quot;
+SELECT ContryFlyingMission, count(*) as MissionsCount
+FROM Bombing_Operations
+GROUP BY ContryFlyingMission
+ORDER BY MissionsCount DESC
+&quot;&quot;&quot;
+
+missions_counts = spark.sql(query)
+missions_counts.show()</code></pre></details></li></ul><ul id="b017d9a7-42c8-4a65-b694-23f28a817874" class="toggle"><li><details open=""><summary>Group by date</summary><pre id="f8ea8911-c232-4042-bda1-5729c4ae1bc3" class="code"><code>missions_countries = Bombing_Operations.selectExpr([&quot;to_date(MissionDate) as MissionDate&quot;, &quot;ContryFlyingMission&quot;])
+missions_by_date = missions_countries\
+                    .groupBy([&quot;MissionDate&quot;, &quot;ContryFlyingMission&quot;])\
+                    .agg(count(&quot;*&quot;).alias(&quot;MissionsCount&quot;))\
+                    .sort(asc(&quot;MissionDate&quot;)).toPandas()
+missions_by_date.head()
+</code></pre></details></li></ul><ul id="25ec6731-e9a3-41b0-b562-c96c85303cf8" class="toggle"><li><details open=""><summary>Iterate the different groups to create a different series</summary><pre id="f67de496-8118-4e0d-a009-8c3bdb7b2fa9" class="code"><code>fig = plt.figure(figsize=(10, 6))
+
+# iterate the different groups to create a different series
+for country, missions in missions_by_date.groupby(&quot;ContryFlyingMission&quot;): 
+    plt.plot(missions[&quot;MissionDate&quot;], missions[&quot;MissionsCount&quot;], label=country)
+
+plt.legend(loc=&#x27;best&#x27;)</code></pre></details></li></ul><ul id="3e26ca92-a595-45c8-bc96-8e7baa4f05d7" class="toggle"><li><details open=""><summary>Save results</summary><pre id="d4e3fd44-e224-419f-913e-ef61ba8f626e" class="code"><code>jun_29_operations.write.mode(&#x27;overwrite&#x27;).json(&quot;jun_29_operations.json&quot;)</code></pre></details></li></ul><ul id="850bdff7-fa12-4965-bd18-a6bcefa4257f" class="toggle"><li><details open=""><summary>Map/Reduce format with RDDs.</summary><pre id="499dd1df-79b0-470b-9c61-02c759bbfd80" class="code"><code>all_locations = jun_29_operations.rdd.map(lambda row: (row.TakeoffLocation, 1))
+all_locations.take(3)
+locations_counts_rdd = all_locations.reduceByKey(lambda a, b: a+b).sortBy(lambda r: -r[1])
+locations_counts_rdd.take(3)</code></pre><pre id="d812cab7-89b3-405a-adec-3e31c6f7cf79" class="code"><code>TakeoffLocationCounts = jun_29_operations\
+                            .groupBy(&quot;TakeoffLocation&quot;).agg(count(&quot;*&quot;).alias(&quot;MissionsCount&quot;))\
+                            .sort(desc(&quot;MissionsCount&quot;))
+TakeoffLocationCounts.show()</code></pre></details></li></ul><ul id="0bb17829-597c-4fd0-80d1-e16ad7626393" class="toggle"><li><details open=""><summary>Convert rdd to df</summary><pre id="842b7fe7-b7fc-4689-b523-9828a2e9f7a8" class="code"><code>locations_counts_with_schema = locations_counts_rdd.map(lambda r: Row(TakeoffLocation=r[0], MissionsCount=r[1]))
+locations_counts = spark.createDataFrame(locations_counts_with_schema)
+locations_counts.show()</code></pre></details></li></ul></details></li></ul><ul id="14909676-d7b2-4a90-bfb7-cc6ac6a0f5a6" class="toggle"><li><details open=""><summary><a href="http://localhost:8889/notebooks/Documents/GitHub/2020/Tutorials/12%20-%20Scaling%20up/ScalingUp_Exercises_Solution.ipynb">12 - Scaling up exercise</a></summary><ul id="116a186d-22e1-4376-971f-e5569a037d3c" class="toggle"><li><details open=""><summary>Display df side by side</summary><pre id="3c118596-00ec-4e90-b2e6-1137547012ec" class="code"><code>from IPython.display import display_html
+def display_side_by_side(*args):
+    html_str=&#x27;&#x27;
+    for df in args:
+        html_str+=df.to_html()
+    display_html(html_str.replace(&#x27;table&#x27;,&#x27;table style=&quot;display:inline&quot;&#x27;),raw=True)</code></pre></details></li></ul><ul id="fa6393ea-8a09-4c77-a3e1-2a154e68b243" class="toggle"><li><details open=""><summary>Tokenizer, stopwords_remover</summary><pre id="9b49c878-3bba-4cd2-b940-865865e52cd4" class="code"><code>from pyspark.ml.feature import RegexTokenizer, StopWordsRemover
+from pyspark.sql.window import Window
+from pyspark.sql.functions import rank, col
+
+# tokenize the text
+regexTokenizer = RegexTokenizer(inputCol=&quot;body&quot;, outputCol=&quot;all_words&quot;, pattern=&quot;\\W&quot;)
+reddit_with_words = regexTokenizer.transform(reddit)
+
+# remove stop words
+remover = StopWordsRemover(inputCol=&quot;all_words&quot;, outputCol=&quot;words&quot;)
+reddit_with_tokens = remover.transform(reddit_with_words).drop(&quot;all_words&quot;)</code></pre></details></li></ul><ul id="60628f0b-ec66-4ca9-b359-484ce80624cf" class="toggle"><li><details open=""><summary>Explode words from list of words</summary><pre id="98d2f8a5-9814-49c6-92f2-532114afa102" class="code"><code># get all words in a single dataframe
+all_words = reddit_with_tokens.select(explode(&quot;words&quot;).alias(&quot;word&quot;))
+# group by, sort and limit to 50k 
+top50k = all_words.groupBy(&quot;word&quot;).agg(count(&quot;*&quot;).alias(&quot;total&quot;)).sort(col(&quot;total&quot;).desc()).limit(50000)
+
+top50k.show()</code></pre></details></li></ul><ul id="659662ed-df70-4674-9112-ea3d4bf3323c" class="toggle"><li><details open=""><summary>Create a representation of subreddits and number of 50k words in this subreddit: 1 sureddit - all word in it</summary><pre id="a591b33a-6e76-431d-92f5-a70330cecbb5" class="code"><code>subreddit_50k = filtered_tokens.rdd.map(lambda r: (r.subreddit, [r.word])).reduceByKey(lambda a,b: a+b).collect()</code></pre></details></li></ul><ul id="3f36eaa1-e2f0-4160-9799-37b8112805ef" class="toggle"><li><details open=""><summary>Plot heatmap of Jacard similarity</summary><pre id="9144396f-061e-4382-a400-3365a1df97cc" class="code"><code># Note: similarity is computed 2 times! It can be optimized
+similarity = []
+for sr1 in subreddit_50k:
+    for sr2 in subreddit_50k:
+        similarity.append((sr1[0], sr2[0], jaccard_similarity(sr1[1], sr2[1])))
+
+
+similarity_matrix_50k_words = pd.DataFrame(similarity).pivot(index=0, columns=1, values=2)
+plot_heatmap(similarity_matrix_50k_words)</code></pre></details></li></ul><p id="589451dc-c332-4b39-9a23-49bf45b2e2fb" class="">
+</p></details></li></ul><ul id="540a7bbb-45f3-496b-abd2-897a6eb7408c" class="toggle"><li><details open=""><summary>2019 exam</summary><p id="9be0c781-e028-45f8-9d21-425f1f5fc59b" class="">All imports</p><pre id="e912c37c-1bf4-4f1f-a405-a7cca7312221" class="code"><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+import math
+import networkx as nx
+from networkx import from_numpy_array
+import json
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import Ridge
+from sklearn.preprocessing import StandardScaler
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression, LogisticRegression, Ridge
+# from sklearn.preprocessing import OneHotEncoder
+# from pandas.plotting import scatter_matrix
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import mean_squared_error, auc, roc_curve
+# import seaborn as sns
+
+from sklearn.preprocessing import OneHotEncoder
+# Standard imports
+import numpy  as np
+import pandas as pd
+import tensorflow as tf
+from tensorflow import keras
+import itertools
+import pandas_profiling
+
+# scikit-learn: Models
+from sklearn.dummy           import DummyClassifier
+from sklearn.linear_model    import LogisticRegression
+from sklearn.svm             import SVC
+from sklearn.neighbors       import KNeighborsClassifier
+from sklearn.tree            import DecisionTreeClassifier
+from sklearn.ensemble        import RandomForestClassifier
+from sklearn.ensemble        import GradientBoostingClassifier
+
+# scikit-learn: Supporting functions 
+from sklearn.metrics         import confusion_matrix
+from sklearn.metrics         import roc_curve
+from sklearn.metrics         import roc_auc_score
+from sklearn.pipeline        import Pipeline
+from sklearn.preprocessing   import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.tree            import export_graphviz
+from sklearn.decomposition   import PCA
+
+# Plotting
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+%matplotlib inline  
+import seaborn as sns
+sns.set(style=&quot;white&quot;)
+
+# ignore some warnings 
+import warnings
+warnings.filterwarnings(&#x27;ignore&#x27;)</code></pre><p id="d5c15cd3-af08-4cfd-b38c-468f1627ec67" class="">Very quickly groupby plot</p><pre id="5259eaa9-bef4-4db7-8fa7-35cca56694df" class="code"><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+import math
+plt.figure(figsize=(14, 6))
+youtube.groupby([&#x27;year&#x27;])[&#x27;year&#x27;].count().plot.bar()
+plt.title(&#x27;Number of videos published per year between and including 2010 and 2018&#x27;)
+plt.show()</code></pre><ul id="13f49060-eed0-44e7-a030-737ff279fb67" class="toggle"><li><details open=""><summary>sort_values → groupby → leave only the min</summary><pre id="ca6597a0-1c03-4454-b012-a110fca046d9" class="code"><code>youtube[youtube.year==2010].sort_values(&#x27;upload_date&#x27;).groupby([&#x27;channel&#x27;]).first()</code></pre></details></li></ul><ul id="c0266cb6-f5da-4cae-b9fb-e6c1f1e60220" class="toggle"><li><details open=""><summary>plot cumulative sum</summary><pre id="0589005a-1fc2-444a-a275-c84bfef1f107" class="code"><code># Compute number of created channels per year and take cumulative sum
+number_of_created_channels = np.cumsum(channels_created_from_2010_to_2018\
+                                        .groupby(&#x27;publishing_year&#x27;)[&#x27;title&#x27;].count())</code></pre></details></li></ul><ul id="c74d7c61-6a85-4ee5-b197-31739a93d3e7" class="toggle"><li><details open=""><summary>Plot stacked barplot</summary><p id="9bb4311d-a12c-4429-86d3-b598ca3f1984" class=""><a href="https://matplotlib.org/3.3.3/gallery/lines_bars_and_markers/bar_stacked.html">https://matplotlib.org/3.3.3/gallery/lines_bars_and_markers/bar_stacked.html</a></p><pre id="35699d1f-24a9-4d0c-b59f-e64dec4dbe2d" class="code"><code>fig, ax = plt.subplots()
+ax.bar(table1[table1.channel_cat==&#x27;Gaming&#x27;].year, table1[table1.channel_cat==&#x27;Gaming&#x27;].normalized_number, label=&#x27;Gaming&#x27;)
+ax.bar(table1[table1.channel_cat==&#x27;Howto &amp; Style&#x27;].year, table1[table1.channel_cat==&#x27;Howto &amp; Style&#x27;].normalized_number,
+       label=&#x27;Howto &amp; Style&#x27;)
+ax.set_ylabel(&#x27;&#x27;)
+ax.set_title(&#x27;&#x27;)
+ax.legend()
+
+plt.show()</code></pre></details></li></ul><ul id="793ebb46-81a8-4533-94ff-16642237eee7" class="toggle"><li><details open=""><summary>Crosstab</summary><pre id="5497eedf-6ad8-4b34-a8f1-4aa32fdb883c" class="code"><code>pd.crosstab(index=youtube[&#x27;year&#x27;],columns=youtube[&#x27;channel_cat&#x27;],
+            values=youtube[&#x27;view_count&#x27;],aggfunc=np.sum)
+or 
+youtube.groupby([&#x27;channel_cat&#x27;,&#x27;year&#x27;]).view_count.sum()</code></pre></details></li></ul><ul id="8c182c56-7346-4eae-b2ad-ae9985bcbe15" class="toggle"><li><details open=""><summary>Bootstrap and CI</summary><pre id="e98566a7-b7e2-4842-b901-957a1e915b2e" class="code"><code>#Quick 
+def do_bootstrap(data, n=1000):
+    sample_statistic = [] 
+    for _ in range(n):
+        sampled_data = np.random.choice(data, size=len(data))  
+        sample_statistic.append(np.mean(sampled_data))
+    return (np.percentile(sample_statistic, 2.5), np.percentile(sample_statistic, 97.5))</code></pre><p id="78d784f0-7dbd-4c20-9f95-08cf9aa310c7" class="">
+</p></details></li></ul><ul id="04bcee58-7b5c-48dc-a464-7bd0cdf3d327" class="toggle"><li><details open=""><summary>Important imports</summary><pre id="890aacef-fd07-426b-b1fd-d90e14a33704" class="code"><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression, LogisticRegression, Ridge
+# from sklearn.preprocessing import OneHotEncoder
+# from pandas.plotting import scatter_matrix
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import mean_squared_error, auc, roc_curve
+# import seaborn as sns
+%matplotlib inline</code></pre></details></li></ul><ul id="93d7f92c-f62f-4b22-b576-6b633d9bf482" class="toggle"><li><details open=""><summary>Pipe to encode, scale and fit//predict</summary><pre id="4b22425c-e93a-4e64-9a2b-5d95be07b55d" class="code"><code>def pipe(X_B5,y_B5,col_to_encode):
+    #OneHotEncoder
+    enc = OneHotEncoder(handle_unknown=&#x27;ignore&#x27;,sparse=False)
+    X_B5=pd.concat([X_B5.drop([col_to_encode],axis=1),pd.get_dummies(X_B5[col_to_encode])],axis=1)
+    #train_test_split
+    X_B5_train2, X_B5_test2, y_B5_train2, y_B5_test2=train_test_split(X_B5, y_B5, test_size=0.30, random_state=42)
+    #StandardScaler
+    ss=StandardScaler()
+    X_B5_train2=ss.fit_transform(X_B5_train2)
+    X_B5_test2=ss.transform(X_B5_test2)
+    #from regression to classification
+    mediana=y_B5_train2.median()
+    y_B5_train2=np.where(y_B5_train2&lt;=mediana,0,1)
+    y_B5_test2=np.where(y_B5_test2&lt;=mediana,0,1)
+    #model
+    model=LogisticRegression(C=100,max_iter=1000)
+    model.fit(X_B5_train2,y_B5_train2)
+    y_B5_test2_pred=model.predict(X_B5_test2)
+    return accuracy_score(y_B5_test2,y_B5_test2_pred)</code></pre></details></li></ul><ul id="b24fd5c4-5cbe-4941-b2b7-027594f8ecff" class="toggle"><li><details open=""><summary>Network</summary><pre id="d1692127-9395-4fad-bec0-35fb2354a96c" class="code"><code>#G_tags graph is not connected and thus it does not have a diameter
+#There is 2 subgraphs and 1 of them has just one node, which id indicator of outlier, but another sub graph- is connected
+nx.number_connected_components(g_tags)
+g_tags_comp1,  g_tags_comp2 = [g_tags.subgraph(c).copy() for c in nx.connected_components(g_tags)]
+print(&quot;Diameter G_tags_comp1: %0.4f&quot; % nx.diameter(g_tags_comp1))
+print(&quot;Diameter G_tags_comp2: %d&quot; % nx.diameter(g_tags_comp2))
+len(g_tags_comp2.nodes())
+nx.diameter(g_tags_comp1) 
+#the diversity in terms of graph diameter is the same
+#if we exclude an outlier, the graph has a diameter =2 which implies that channels are also similar based on tags</code></pre><ul id="66431fb2-b3f0-426e-8cd0-703057454983" class="toggle"><li><details open=""><summary>Subgraph</summary><pre id="46788fe7-d05e-4108-9579-ad37aa528ada" class="code"><code># For this task I would separate the graph on two subgraphs for each category. 
+# As a measure of how representative a channel is I would pick nodes&#x27; degree 
+#    as it shows how many channels are similar to that one
+
+# Lets separate the graph at first 
+
+gaming_channels = youtube[youtube[&#x27;channel_cat&#x27;] == &#x27;Gaming&#x27;][&#x27;channel&#x27;].unique()
+gaming_channels_indicies = [channel_to_index[channel] for channel in gaming_channels]
+
+howto_channels = youtube[youtube[&#x27;channel_cat&#x27;] == &#x27;Howto &amp; Style&#x27;][&#x27;channel&#x27;].unique()
+howto_channels_indicies = [channel_to_index[channel] for channel in howto_channels]
+
+# Create subgraphs on these nodes 
+
+gaming_text_graph = g_text.subgraph(gaming_channels_indicies)
+howto_text_graph = g_text.subgraph(howto_channels_indicies)</code></pre></details></li></ul></details></li></ul><ul id="85c0939e-fed9-4b39-88d4-c350d897b582" class="toggle"><li><details open=""><summary>GridSearchCV</summary><pre id="3bb72b87-d97a-455f-8417-daebfb55ec02" class="code"><code>X_train = train.drop(columns=[&#x27;view_count&#x27;])
+y_train = train[&#x27;view_count&#x27;]
+X_test = test.drop(columns=[&#x27;view_count&#x27;])
+y_test = test[&#x27;view_count&#x27;]
+
+ridge = Ridge()
+ridge_hyper = {&#x27;alpha&#x27;:(0.001, 0.01, 0.1)}
+ridge_cv = GridSearchCV(ridge, ridge_hyper, cv=3)
+ridge_cv.fit(X_train, y_train)
+
+ridge_cv.cv_results_[&#x27;mean_test_score&#x27;]
+mean_absolute_error(y_test, ridge_cv.predict(X_test))</code></pre></details></li></ul><ul id="212a2573-21d6-49b5-b750-2661e12b300f" class="toggle"><li><details open=""><summary>LogisticRegressionCV</summary><pre id="7e6aa408-8b5a-4987-83de-c7f649ead2c6" class="code"><code>Cs = (1, 10, 100)
+log_reg_cv = LogisticRegressionCV(Cs=Cs, cv=3, random_state=42, max_iter=200)
+log_reg_cv.fit(X_train, y_train_binary)
+opt_C = log_reg_cv.C_[0]
+log_reg_cv.scores_[1].mean(axis=0)
+log_reg_cv.score(X_test, y_test_binary)</code></pre></details></li></ul><p id="109760cb-0ed2-42e6-a706-fcfbb5c4339f" class="">
+</p></details></li></ul><ul id="f63d688d-abe4-4278-be9a-a48cacbc45d2" class="toggle"><li><details open=""><summary>2017 exam</summary><ul id="8b2dcf26-501c-4505-bcfd-349cd421b10e" class="toggle"><li><details open=""><summary>pandas profile</summary><pre id="9b2501ad-7ec1-4e4e-b6d9-79564711799b" class="code"><code>#profile report
+#Importing the function
+from pandas_profiling import ProfileReport
+profile = ProfileReport(pokemons, title=&#x27;MPG Pandas Profiling Report&#x27;, explorative = True)
+profile</code></pre></details></li></ul><ul id="6c8d58b6-3736-4c4e-9bde-06cb0403cf9c" class="toggle"><li><details open=""><summary>t-stats</summary><pre id="3b1e6fb8-e765-4dc7-afd3-d1b9a28727d5" class="code"><code>import scipy.stats as stats
+
+#perform two sample t-test with equal variances
+stats.ttest_ind(a=group1, b=group2, equal_var=True)</code></pre></details></li></ul><ul id="9b6f92ff-62bd-4265-b27a-fe0089424694" class="toggle"><li><details open=""><summary>read in spark from csv</summary><pre id="2625ebfd-c1c3-4ed7-9103-eee9c6becf5c" class="code"><code>pokemons=spark.read.format(&quot;com.databricks.spark.csv&quot;)\
+    .option(&quot;header&quot;, &quot;true&quot;)\
+    .load(&#x27;pokemon.csv&#x27;)</code></pre></details></li></ul><ul id="17b50c55-6d5c-4375-a77d-f6472ae69a68" class="toggle"><li><details open=""><summary>Categorical columns</summary><pre id="90c5fca6-ec6a-4e57-991a-9afd15d7341b" class="code"><code>s=(X.dtypes==&#x27;object&#x27;)
+list(s[s].index)</code></pre></details></li></ul><ul id="e4cbdff0-89fd-488e-aa3e-b194ed16f326" class="toggle"><li><details open=""><summary>Pipeline</summary><figure id="38dc61e6-e5b3-4489-bd5b-7d4f6a970e39"><div class="source"><a href="https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mixed_types.html">https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mixed_types.html</a></div></figure><pre id="8710c26d-11ee-495e-85c9-f222b866b37c" class="code"><code>from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
+from sklearn.model_selection import GridSearchCV
+
+#Train_test_split
+from sklearn.model_selection import train_test_split
+
+
+y=feature_of_second_pok[&#x27;Winner&#x27;]
+X=feature_of_second_pok.drop([&#x27;Winner&#x27;],axis=1)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                      train_size=0.9,
+                                                      random_state=0)
+
+
+#LabelEncoder cat columns
+s=(X.dtypes==&#x27;object&#x27;)
+object_cols=list(s[s].index)
+
+numerical_cols=list(X.columns.difference(object_cols))
+
+# Preprocessing for categorical data
+categorical_transformer = Pipeline(steps=[
+    (&#x27;imputer&#x27;, SimpleImputer(strategy=&#x27;constant&#x27;)),
+    (&#x27;labelenc&#x27;,OneHotEncoder(handle_unknown=&#x27;ignore&#x27;))
+])
+
+numerical_transformer = StandardScaler() # Your code here
+
+# Bundle preprocessing for numerical and categorical data
+preprocessor = ColumnTransformer(
+    transformers=[ 
+                 (&#x27;num&#x27;, numerical_transformer, numerical_cols),
+        (&#x27;cat&#x27;, categorical_transformer, object_cols)])
+
+
+# Define model
+model = RandomForestClassifier()
+
+# Bundle preprocessing and modeling code in a pipeline
+pipeline = Pipeline(steps=[(&#x27;preprocessor&#x27;, preprocessor),
+                      (&#x27;rfc&#x27;, model)
+                     ])
+&quot;&quot;&quot;# Preprocessing of training data, fit model 
+clf.fit(X_train, y_train)
+
+# Preprocessing of validation data, get predictions
+preds = clf.predict(X_valid)&quot;&quot;&quot;
+
+# Parameters of pipelines can be set using ‘__’ separated parameter names:
+param_grid = {
+    &#x27;rfc__n_estimators&#x27;: [10,25,50,100],
+    &#x27;rfc__max_depth&#x27;: [2,4,10]
+}
+search = GridSearchCV(pipeline, param_grid)
+search.fit(X_train, y_train)
+print(&quot;Best parameter (CV score=%0.3f):&quot; % search.best_score_)
+print(search.best_params_)
+
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
+print(confusion_matrix(y_test, y_pred))
+
+#Feature_importance
+
+numerical_columns=X.columns.difference(object_cols)
+feature_importance = pd.Series(data= search.best_estimator_.named_steps[&#x27;rfc&#x27;].feature_importances_,
+                               index = np.array(list(numerical_columns)+ onehot_columns))
+feature_importance.sort_values(ascending=False).head(20).plot.barh()</code></pre><figure id="2b746e16-74a9-4630-9903-0bf947a51546" class="image"><a href="ADA%207194efd2d7004110993fd918e1dbc893/Untitled.png"><img style="width:288px" src="ADA%207194efd2d7004110993fd918e1dbc893/Untitled.png"/></a></figure></details></li></ul><ul id="e0e6f842-d043-4a2b-9ec6-2c93aa71fb4d" class="toggle"><li><details open=""><summary>Report of metrics</summary><pre id="000fc113-a47d-4209-8d1a-c159c8732b85" class="code"><code>from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
+print(confusion_matrix(y_test, y_pred))</code></pre><p id="6e3836c5-bd8e-4c67-b505-688c7b5b356d" class="">
+</p></details></li></ul></details></li></ul><ul id="20deec24-5ea7-40df-9f33-774b92d942f0" class="toggle"><li><details open=""><summary>Links to exams</summary><p id="8c92a2a1-afd5-4a22-aef5-b39e3c485ead" class="">2018</p><figure id="d15b88a0-b30c-4837-85c1-1ba7830d8a03"><a href="http://localhost:8889/notebooks/Desktop/EPFL/ADA2020/Preparation%20for%20an%20exam/2018/ada_final_exam/final_exam.ipynb" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">http://localhost:8889/notebooks/Desktop/EPFL/ADA2020/Preparation%20for%20an%20exam/2018/ada_final_exam/final_exam.ipynb</div></div></a></figure><p id="8f46fc9e-0b9d-4b01-9e2c-a87c7887dca6" class="">
+</p><p id="97d1a6b4-52fd-4ae1-a9f9-9c2e039c4df3" class="">2019</p><p id="fa801af1-d231-450a-8c15-dc2e5bf5c4c7" class=""><a href="http://localhost:8890/notebooks/Desktop/GitHub/2020/Tutorials/ADA-2019-Final-Exam/exam_solutions.ipynb">http://localhost:8890/notebooks/Desktop/GitHub/2020/Tutorials/ADA-2019-Final-Exam/exam_solutions.ipynb</a></p><figure id="f2f0c8cb-8f15-40cb-850f-52b4f8bbe7f9"><a href="https://github.com/epfl-ada/2019/blob/master/Final/exam_solutions.ipynb" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">epfl-ada/2019</div><div class="bookmark-description">Materials for Applied Data Analysis CS-401, fall 2019) - epfl-ada/2019</div></div><div class="bookmark-href"><img src="https://github.com/favicon.ico" class="icon bookmark-icon"/>https://github.com/epfl-ada/2019/blob/master/Final/exam_solutions.ipynb</div></div><img src="https://avatars0.githubusercontent.com/u/31505588?s=400&amp;v=4" class="bookmark-image"/></a></figure></details></li></ul></div></article></body></html>
